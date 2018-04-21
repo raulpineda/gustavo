@@ -6,10 +6,11 @@ function workspaceApp(state, action) {
   if (typeof state === "undefined") {
     return initialState;
   }
+
   switch (action.type) {
     case "incremenThor":
       return {
-        value: state.value + 6
+        value: state.value + 4
       };
       break;
 
@@ -19,4 +20,4 @@ function workspaceApp(state, action) {
   }
 }
 
-export default workspaceApp;
+module.exports = workspaceApp;

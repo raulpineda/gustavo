@@ -4,7 +4,8 @@ import Counter from "./counter";
 const getValue = state => state.value;
 
 const incrementCounter = () => ({
-  type: "incremenThor"
+  type: "incremenThor",
+  payload: 123
 });
 
 const mapStateToProps = state => ({

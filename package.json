@@ -5,7 +5,7 @@
   "main": "./src/main/index.js",
   "scripts": {
     "start": "electron .",
-    "start:renderer": "parcel src/index.html"
+    "start:dev": "parcel --target=electron src/index.html -p 8000"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,6 @@
     "redux": "^4.0.0"
   },
   "devDependencies": {
-    "babel-preset-env": "^1.6.1",
     "parcel-bundler": "^1.7.1",
     "prettier": "^1.12.1"
   }

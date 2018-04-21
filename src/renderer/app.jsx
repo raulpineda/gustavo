@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import workspaceApp from "./reducer";
 import React from "react";
 import { Provider } from "react-redux";
@@ -11,21 +11,16 @@ import {
   getInitialStateRenderer
 } from "electron-redux";
 
-const store = createStore(workspaceApp);
+const logger = store => next => action => {
+  console.log("dispatching", action);
+  let result = next(action);
+  console.log("next state", store.getState());
+  return result;
+};
 
-// const todoApp = combineReducers(reducers);
-// const initialState = getInitialStateRenderer();
+const store = createStore(workspaceApp, applyMiddleware(forwardToMain, logger));
 
-// const store = createStore(
-//   todoApp,
-//   initialState,
-//   applyMiddleware(
-//     forwardToMain, // IMPORTANT! This goes first
-//     ...otherMiddleware,
-//   ),
-// );
-
-// replayActionRenderer(store);
+replayActionRenderer(store);
 
 render(
   <Provider store={store}>
