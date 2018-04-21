@@ -10,7 +10,7 @@ function workspaceApp(state, action) {
   switch (action.type) {
     case "incremenThor":
       return {
-        value: state.value + 4
+        value: state.value + 6
       };
       break;
 

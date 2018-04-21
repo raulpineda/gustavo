@@ -17,8 +17,13 @@ const logger = store => next => action => {
   console.log("next state", store.getState());
   return result;
 };
+const initialState = getInitialStateRenderer();
 
-const store = createStore(workspaceApp, applyMiddleware(forwardToMain, logger));
+const store = createStore(
+  workspaceApp,
+  initialState,
+  applyMiddleware(forwardToMain, logger)
+);
 
 replayActionRenderer(store);
 
